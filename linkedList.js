@@ -50,4 +50,37 @@ export default class LinkedList {
         }
         return current;
     }
+
+    at(index) {
+        if(index < 0) return null;
+        
+        let current = this.head;
+        let count = 0;
+
+        while(current !== null) {
+            if(count === index) return current;
+            count++;
+            current = current.next;
+        }
+        return null;
+    }
+
+    pop() {
+        if(!this.head) return null;
+
+        if(!this.head.next) {
+            const popped = this.head;
+            this.head = null;
+            return popped;
+        }
+
+        let current = this.head;
+        while (current.next.next !== null) {
+        current = current.next;
+        }
+
+        const popped = current.next;
+        current.next = null;
+        return popped;
+    }
 }

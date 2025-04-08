@@ -15,3 +15,9 @@ while(current !== null) {
 console.log('Size:', list.size());
 console.log('Head:', list.headNode().value);
 console.log('Tail:', list.tail().value);
+
+console.log('Node at index 1:', list.at(1).value);
+
+const popped = list.pop();
+console.log('Popped:', popped.value);
+console.log('After popping, new tail:', list.tail().value);
