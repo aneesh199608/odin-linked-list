@@ -121,7 +121,37 @@ export default class LinkedList {
         }
         return result + 'null';
     }
+
+    insertAt(value, index) {
+        if (index < 0) return;
       
+        const newNode = new Node(value);
       
+        if (index === 0) {
+          newNode.next = this.head;
+          this.head = newNode;
+          return;
+        }
       
+        let prev = this.at(index - 1);
+        if (!prev) return;
+      
+        newNode.next = prev.next;
+        prev.next = newNode;
+    }
+
+    removeAt(index) {
+        if (!this.head || index < 0) return;
+      
+        if (index === 0) {
+          this.head = this.head.next;
+          return;
+        }
+      
+        let prev = this.at(index - 1);
+        if (!prev || !prev.next) return;
+      
+        prev.next = prev.next.next;
+    }
+  
 }

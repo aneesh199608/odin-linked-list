@@ -25,3 +25,19 @@ console.log('After popping, new tail:', list.tail().value);
 console.log('Contains C:', list.contains('B'));
 console.log('Find B:', list.find('B'));
 console.log('List:', list.toString());
+
+list.insertAt('X', 1); 
+console.log('After insertAt:', list.toString());
+
+list.removeAt(2); 
+console.log('After removeAt:', list.toString());
+
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
+
+console.log(list.toString());
+
