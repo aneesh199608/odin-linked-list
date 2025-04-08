@@ -21,3 +21,7 @@ console.log('Node at index 1:', list.at(1).value);
 const popped = list.pop();
 console.log('Popped:', popped.value);
 console.log('After popping, new tail:', list.tail().value);
+
+console.log('Contains C:', list.contains('B'));
+console.log('Find B:', list.find('B'));
+console.log('List:', list.toString());

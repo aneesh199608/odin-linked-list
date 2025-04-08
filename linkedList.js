@@ -27,14 +27,22 @@ export default class LinkedList {
         this.head = newNode;
     }
 
-    size() {
-        let count = 0;
-        let current = this.head;
-        while (current) {
-            count++;
-            current = current.next;
-        }
-        return count;
+    // size() {
+    //     let count = 0;
+    //     let current = this.head;
+    //     while (current) {
+    //         count++;
+    //         current = current.next;
+    //     }
+    //     return count;
+    // }
+
+    //using recursion here
+    size(node = this.head) {
+
+        if (node === null) return 0;
+        return 1 + this.size(node.next);
+    
     }
 
     headNode() {
@@ -83,4 +91,37 @@ export default class LinkedList {
         current.next = null;
         return popped;
     }
+
+    contains(value) {
+        let current = this.head;
+        while (current) {
+          if (current.value === value) return true;
+          current = current.next;
+        }
+        return false;
+    }
+
+    find(value) {
+        let current = this.head;
+        let index = 0;
+        while (current) {
+          if (current.value === value) return index;
+          current = current.next;
+          index++;
+        }
+        return null;
+    }
+
+    toString() {
+        let current = this.head;
+        let result = '';
+        while (current) {
+          result += `( ${current.value} ) -> `;
+          current = current.next;
+        }
+        return result + 'null';
+    }
+      
+      
+      
 }
